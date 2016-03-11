@@ -28,21 +28,20 @@ Medida.match  = function(str) {
 
 	Medida.convertir = function(valor) {
 		var measures = Medida.measures;
-		measures.c = Celsius;
-		measures.f = Farenheit;
-		measures.k = Kelvin;
+		measures.C = Celsius;
+		measures.F = Farenheit;
+		measures.K = Kelvin;
 		var match = Medida.match(valor);	//Invocamos al método match de Medida
 		console.log(match);
 		if (match) {
 			var numero = parseFloat(match.numero),
-			tipo   = match.tipo,
-			destino = match.destino;
+			tipo   = match.tipo.toUpperCase(),
+			destino = match.destino.toUpperCase();
 			try {
 				var source = new measures[tipo](numero);  // new Fahrenheit(32)
 				console.log(source);
 				var target = "to" + measures[destino].name; // "toCelsius"
-				var aux = source[target](); // "0 Celsius"
-				console.log("Resultado : " + aux);
+				return source[target]().valor.toFixed(1) + " " + destino; // "0 Celsius"
 			}
 			catch(err) {
 				console.log(err);
