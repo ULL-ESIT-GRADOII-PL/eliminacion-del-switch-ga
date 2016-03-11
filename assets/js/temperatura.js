@@ -1,3 +1,5 @@
+(function(exports){
+	"use strict";
 function Temperatura(valor, tipo) {
 
 	Medida.call(this, valor, tipo);
@@ -41,12 +43,12 @@ function Farenheit(valor) {
 Farenheit.prototype = new Temperatura();
 Farenheit.prototype.constructor = Farenheit;
 
-Fahrenheit.prototype.toCelsius = function () {
+Farenheit.prototype.toCelsius = function () {
   var result = (this.valor - 32) * 5/9;
   return result;
 }
 
-Fahrenheit.prototype.toKelvin = function () {
+Farenheit.prototype.toKelvin = function () {
   var result = ((this.valor - 32) / (9/5)) + 273.15;
   return result;
 }
@@ -73,3 +75,9 @@ Kelvin.prototype.toFahrenheit = function () {
   var result = ((this.valor - 273.15) * 9/5) + 32;
   return result;
 }
+//hacemos las exportaciones de la clausura
+exports.Temperatura = Temperatura;
+exports.Celsius = Celsius;
+exports.Fahrenheit = Fahrenheit;
+exports.Kelvin = Kelvin;
+})(this);
