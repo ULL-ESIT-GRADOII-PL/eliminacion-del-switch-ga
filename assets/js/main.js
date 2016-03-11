@@ -1,10 +1,11 @@
-(function(exports) {
-  "use strict";
+(function(exportar){
+	"use stric";
   function main() {
       var valor     = document.getElementById('convert').value,
           elemento  = document.getElementById('converted');
+					console.log(valor);
       elemento.innerHTML = Medida.convertir(valor);
       return false;
   }
-  exports.main = main;
+	exportar.main = main;
 })(this);
